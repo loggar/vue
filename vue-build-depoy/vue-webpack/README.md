@@ -4,7 +4,7 @@
 # install dependencies
 npm install
 
-# dev server at localhost:8080 with hot reload
+# dev server at localhost:24010 with hot reload
 npm run serve
 
 # production build

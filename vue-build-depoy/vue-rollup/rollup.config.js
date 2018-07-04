@@ -7,31 +7,31 @@ import livereload from 'rollup-plugin-livereload';
 import serve from 'rollup-plugin-serve';
 
 const config = {
-  entry: 'src/main.js',
-  dest: 'dist/build.js',
-  format: 'iife',
-  sourceMap: true,
-  useStrict: true,
-  plugins: [
-    vue({ compileTemplate: true, css: 'dist/build.css' }),
-    buble({ exclude: 'node_modules/**' }),
-    nodeResolve({ browser: true, jsnext: true }),
-    commonjs()
-  ]
+	entry: 'src/main.js',
+	dest: 'dist/build.js',
+	format: 'iife',
+	sourceMap: true,
+	useStrict: true,
+	plugins: [
+		vue({ compileTemplate: true, css: 'dist/build.css' }),
+		buble({ exclude: 'node_modules/**' }),
+		nodeResolve({ browser: true, jsnext: true }),
+		commonjs()
+	]
 };
 
 if (process.env.NODE_ENV === 'production') {
-  config.sourceMap = false;
-  config.plugins.push(uglify());
+	config.sourceMap = false;
+	config.plugins.push(uglify());
 }
 
 if (process.env.NODE_ENV === 'development') {
-  config.plugins.push(livereload());
-  config.plugins.push(serve({
-    contentBase: './',
-    port: 8080,
-    open: true
-  }));
+	config.plugins.push(livereload());
+	config.plugins.push(serve({
+		contentBase: './',
+		port: 24010,
+		open: true
+	}));
 }
 
 export default config;
