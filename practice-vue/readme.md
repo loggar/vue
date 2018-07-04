@@ -12,9 +12,3 @@ npm run serve
 # production build
 npm run build
 ```
-
-## vue serve Instant Prototyping
-
-```
-vue serve src/declarative-rendering.vue
-```
