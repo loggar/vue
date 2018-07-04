@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+
+	<div id="app">
+		<p>
+			<a v-bind:href="url">google</a>
+		</p>
+		<p>
+			<button v-on:click="doSomething">doSomething</button>
+		</p>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				url: 'https://google.com'
+			},
+			methods: {
+				doSomething: function () {
+					console.log('do something')
+				}
+			}
+		})
+	</script>
+</body>
+
+</html>

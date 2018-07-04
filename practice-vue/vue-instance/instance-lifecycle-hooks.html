@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+	<div id="app-1">
+		<p>{{ a }}</p>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		var data = { a: 1 }
+		var vm = new Vue({
+			data: {
+				a: 1
+			},
+			created: function () {
+				// `this` points to the vm instance
+				console.log('a is: ' + this.a)
+			}
+			// There are also other hooks which will be called at different stages of the instance’s lifecycle
+			// mounted, updated, destryed ...
+		})
+
+		/*
+		All lifecycle hooks are called with their this context pointing to the Vue instance invoking it.
+
+		Don’t use arrow functions on an options property or callback, such as
+
+		created: () => console.log(this.a)
+		or
+		vm.$watch('a', newValue => this.myMethod()).
+
+		Since arrow functions are bound to the parent context, this will not be the Vue instance as you’d expect, often resulting in errors such as
+		
+		Uncaught TypeError: Cannot read property of undefined
+		or
+		Uncaught TypeError: this.myMethod is not a function.
+		*/
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+
+	<div id="app">
+		<p>{{ number + 1 }}</p>
+		<p>{{ ok ? 'YES' : 'NO' }}</p>
+		<p>{{ message.split('').reverse().join('') }}</p>
+		<div v-bind:id="'list-' + id">id = {{ id }}</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		var app = new Vue({
+			el: '#app',
+			data: {
+				number: 1,
+				ok: true,
+				message: 'message',
+				id: 'id_1'
+			}
+		})
+		/*
+		Template expressions are sandboxed and only have access to a whitelist of globals such as Math and Date.
+		You should not attempt to access user defined globals in template expressions.
+		*/
+	</script>
+</body>
+
+</html>
