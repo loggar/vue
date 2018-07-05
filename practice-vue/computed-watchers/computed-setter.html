@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+
+	<div id="ex-computed">
+		<p>{{ fullName }}</p>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		var vm = new Vue({
+			el: '#ex-computed',
+			data: {
+				firstName: 'Foo',
+				lastName: 'Bar'
+			},
+			computed: {
+				fullName: {
+					// getter
+					get: function () {
+						return this.firstName + ' ' + this.lastName
+					},
+					// setter
+					set: function (newValue) {
+						var names = newValue.split(' ')
+						this.firstName = names[0]
+						this.lastName = names[names.length - 1]
+					}
+				}
+			}
+		})
+
+		vm.fullName = 'John Doe'
+
+		console.log(vm.firstName)
+		console.log(vm.lastName)
+
+	</script>
+</body>
+
+</html>
