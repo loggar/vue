@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+	<ul id="example-1">
+		<my-component v-for="item in items" :key="item.id"></my-component>
+	</ul>
+
+	<ul id="example-2">
+		<my-component v-for="(item, index) in items" v-bind:item="item" v-bind:index="index" v-bind:key="item.id"></my-component>
+	</ul>
+
+	<div id="todo-list-example">
+		<form v-on:submit.prevent="addNewTodo">
+			<label for="new-todo">Add a todo</label>
+			<input v-model="newTodoText" id="new-todo" placeholder="E.g. Feed the cat">
+			<button>Add</button>
+		</form>
+		<ul>
+			<li is="todo-item" v-for="(todo, index) in todos" v-bind:key="todo.id" v-bind:title="todo.title" v-on:remove="todos.splice(index, 1)"></li>
+		</ul>
+	</div>
+	<!-- Note the is="todo-item" attribute. This is necessary in DOM templates, because only an <li> element is valid inside a <ul>. It does the same thing as <todo-item>, but works around a potential browser parsing error. -->
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		Vue.component('my-component', {
+			template: '<li>{{ item }} {{ index }}</li>',
+			props: ['item', 'index']
+		})
+
+		var example1 = new Vue({
+			el: '#example-1',
+			data: {
+				items: [
+					{ id: 'unique-1', message: 'Foo', isComplete: true },
+					{ id: 'unique-2', message: 'Bar', isComplete: false },
+					{ id: 'unique-3', message: 'Zoo', isComplete: false },
+					{ id: 'unique-4', message: 'XYZ', isComplete: true }
+				]
+			}
+		})
+
+		var example1 = new Vue({
+			el: '#example-2',
+			data: {
+				items: [
+					{ id: 'unique-1', message: 'Foo', isComplete: true },
+					{ id: 'unique-2', message: 'Bar', isComplete: false },
+					{ id: 'unique-3', message: 'Zoo', isComplete: false },
+					{ id: 'unique-4', message: 'XYZ', isComplete: true }
+				]
+			}
+		})
+
+		// Here’s a complete example of a simple todo list:
+		Vue.component('todo-item', {
+			template: '\
+				<li>\
+					{{ title }}\
+					<button v-on:click="$emit(\'remove\')">Remove</button>\
+				</li>\
+				',
+			props: ['title']
+		})
+
+		new Vue({
+			el: '#todo-list-example',
+			data: {
+				newTodoText: '',
+				todos: [
+					{
+						id: 1,
+						title: 'Do the dishes',
+					},
+					{
+						id: 2,
+						title: 'Take out the trash',
+					},
+					{
+						id: 3,
+						title: 'Mow the lawn'
+					}
+				],
+				nextTodoId: 4
+			},
+			methods: {
+				addNewTodo: function () {
+					this.todos.push({
+						id: this.nextTodoId++,
+						title: this.newTodoText
+					})
+					this.newTodoText = ''
+				}
+			}
+		})
+	</script>
+</body>
+
+</html>

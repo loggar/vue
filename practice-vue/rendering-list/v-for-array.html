@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+	<ul id="example-1">
+		<li v-for="item in items">
+			{{ item.message }}
+		</li>
+	</ul>
+
+	<ul id="example-2">
+		<li v-for="(item, index) in items">
+			{{ parentMessage }} - {{ index }} - {{ item.message }}
+		</li>
+	</ul>
+
+	<ul id="example-3">
+		<li v-for="item of items">
+			{{ item.message }} 
+		</li>
+	</ul>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		var example1 = new Vue({
+			el: '#example-1',
+			data: {
+				items: [
+					{ message: 'Foo' },
+					{ message: 'Bar' }
+				]
+			}
+		})
+
+		var example2 = new Vue({
+			el: '#example-2',
+			data: {
+				parentMessage: 'Parent',
+				items: [
+					{ message: 'Foo' },
+					{ message: 'Bar' }
+				]
+			}
+		})
+
+		var example3 = new Vue({
+			el: '#example-3',
+			data: {
+				parentMessage: 'Parent',
+				items: [
+					{ message: 'Foo' },
+					{ message: 'Bar' }
+				]
+			}
+		})
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+	<ul id="example-1">
+		<li v-for="item in items" :key="item.id">
+			{{ item.message }}
+		</li>
+	</ul>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		var example1 = new Vue({
+			el: '#example-1',
+			data: {
+				items: [
+					{ id: 'unique-1', message: 'Foo' },
+					{ id: 'unique-2', message: 'Bar' }
+				]
+			}
+		})
+
+	</script>
+</body>
+
+</html>
