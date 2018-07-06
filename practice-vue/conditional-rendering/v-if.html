@@ -10,14 +10,36 @@
 
 	<div id="app">
 		<p v-if="seen">Now you see me</p>
+
+		<div v-if="Math.random() > 0.5">
+			Now you see me
+		</div>
+		<div v-else>
+			Now you don't
+		</div>
+
+		<div v-if="type === 'A'">
+			A
+		</div>
+		<div v-else-if="type === 'B'">
+			B
+		</div>
+		<div v-else-if="type === 'C'">
+			C
+		</div>
+		<div v-else>
+			Not A/B/C
+		</div>
 	</div>
+
 
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script>
 		var app = new Vue({
 			el: '#app',
 			data: {
-				seen: true
+				seen: true,
+				type : 'C'
 			}
 		})
 	</script>

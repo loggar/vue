@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+
+	<div id="app-1">
+		<my-component class="baz boo"></my-component>
+	</div>
+	<!-- it will render 
+	<p class="foo bar baz boo">Hi</p>
+	-->
+
+	<div id="app-2">
+		<my-component v-bind:class="{ active: isActive }"></my-component>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		Vue.component('my-component', {
+			template: '<p class="foo bar">Hi</p>'
+		})
+
+		var app1 = new Vue({
+			el: '#app-1',
+			data: {
+
+			}
+		})
+
+		var app2 = new Vue({
+			el: '#app-2',
+			data: {
+				isActive: true,
+				active: 'a'
+			}
+		})
+
+	</script>
+</body>
+
+</html>

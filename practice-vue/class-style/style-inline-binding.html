@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+	<!-- Object Syntax -->
+	<div id="app-1">
+		<div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }"></div>
+	</div>
+
+	<div id="app-2">
+		<div v-bind:style="styleObject"></div>
+	</div>
+
+	<!-- Array Syntax -->
+	<div id="app-3">
+		<div v-bind:style="[baseStyles, overridingStyles]"></div>
+	</div>
+
+	<!-- Auto-prefixing -->
+	<!-- When you use a CSS property that requires vendor prefixes in v-bind:style, for example transform, Vue will automatically detect and add appropriate prefixes to the applied styles. -->
+
+	<!-- Multiple Values (2.3.0+) -->
+	<div id="app-4">
+		<div v-bind:style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }"></div>
+	</div>
+	<!-- This will only render the last value in the array which the browser supports. In this example, it will render display: flex for browsers that support the unprefixed version of flexbox. -->
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		var app1 = new Vue({
+			el: '#app-1',
+			data: {
+				activeColor: 'red',
+				fontSize: 30
+			}
+		})
+
+		var app2 = new Vue({
+			el: '#app-2',
+			data: {
+				styleObject: {
+					color: 'red',
+					fontSize: '13px'
+				}
+			}
+		})
+
+		var app3 = new Vue({
+			el: '#app-3',
+			data: {
+				baseStyles: { 'color': 'red' },
+				overridingStyles: { 'fontSize': '13px' }
+			}
+		})
+
+		var app4 = new Vue({
+			el: '#app-4',
+			data: {
+			}
+		})
+
+	</script>
+</body>
+
+</html>
