@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+
+	<div id="components-demo">
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+		<button-counter></button-counter>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		// Define a new component called button-counter
+		Vue.component('button-counter', {
+			// data Must Be a Function
+			data: function () {
+				return {
+					count: 0
+				}
+			},
+			template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+		})
+
+		new Vue({ el: '#components-demo' })
+	</script>
+</body>
+
+</html>

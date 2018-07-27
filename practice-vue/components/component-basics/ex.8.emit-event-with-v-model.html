@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+
+	<div id="demo">
+		<custom-input v-model="searchText"></custom-input>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script>
+		Vue.component('custom-input', {
+			props: ['value'],
+			template: `
+				<input
+					v-bind:value="value"
+					v-on:input="$emit('input', $event.target.value)"
+				>
+			`
+		})
+
+		let a = new Vue({
+			el: '#demo',
+			data: {
+				searchText: ""
+			}
+		})
+	</script>
+</body>
+
+</html>
