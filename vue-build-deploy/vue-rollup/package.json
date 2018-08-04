@@ -1,7 +1,6 @@
 {
 	"name": "vue-rollup",
 	"description": "Example using Rollup",
-	"author": "Sohel Amin",
 	"private": true,
 	"main": "main.js",
 	"scripts": {

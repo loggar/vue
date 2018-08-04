@@ -1,0 +1,23 @@
+{
+  "name": "loggar-vue",
+  "version": "1.0.0",
+  "description": "## Vue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/loggar/vue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/loggar/vue/issues"
+  },
+  "homepage": "https://github.com/loggar/vue#readme",
+  "devDependencies": {
+    "vue-cli": "^2.9.6"
+  }
+}
