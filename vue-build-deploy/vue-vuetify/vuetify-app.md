@@ -1,4 +1,6 @@
-# Vuetify app
+# Vuetify
+
+Vue.js Material Component Framework
 
 ## Create vuetify app
 
@@ -44,7 +46,7 @@ You will also need to include the Vuetify css file. Simply include the Vuetify c
 import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
 ```
 
-```
+```scss
 // main.styl
 @import '~vuetify/src/stylus/main' // Ensure you are using stylus-loader
 ```
