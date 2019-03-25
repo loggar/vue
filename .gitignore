@@ -34,6 +34,7 @@ Thumbs.db
 dist/
 .dist/
 dist-production/
+dist-www/
 out-tsc/
 .build/
 

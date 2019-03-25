@@ -1,0 +1,6 @@
+{
+  "appId": "com.loggar.ex.vuecapacitor",
+  "appName": "capacitor-demo",
+  "bundledWebRuntime": false,
+  "webDir": "dist-www"
+}
